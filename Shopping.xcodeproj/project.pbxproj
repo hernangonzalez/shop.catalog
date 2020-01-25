@@ -13,7 +13,38 @@
 		5F158FB923DC4219006F05FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F158FB823DC4219006F05FB /* Assets.xcassets */; };
 		5F158FBC23DC4219006F05FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F158FBB23DC4219006F05FB /* Preview Assets.xcassets */; };
 		5F158FBF23DC4219006F05FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F158FBD23DC4219006F05FB /* LaunchScreen.storyboard */; };
+		5F158FCD23DC424A006F05FB /* ShopKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F158FCC23DC424A006F05FB /* ShopKit.swift */; };
+		5F158FD323DC430D006F05FB /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F158FD223DC430D006F05FB /* Product.swift */; };
+		5F158FD523DC4415006F05FB /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F158FD423DC4415006F05FB /* CartItem.swift */; };
+		5F158FD823DC4530006F05FB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F158FD723DC4530006F05FB /* Network.swift */; };
+		5F158FDA23DC45A2006F05FB /* libShopKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F158FCA23DC424A006F05FB /* libShopKit.a */; };
+		5F158FDF23DC468A006F05FB /* Combine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F158FDE23DC468A006F05FB /* Combine+Extensions.swift */; };
+		5F158FE123DC46E0006F05FB /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F158FE023DC46E0006F05FB /* Data+Extensions.swift */; };
+		5F158FE323DC482E006F05FB /* ShopAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F158FE223DC482E006F05FB /* ShopAPI.swift */; };
+		5F158FE523DC4E8F006F05FB /* ShopRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F158FE423DC4E8F006F05FB /* ShopRequest.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5F158FDB23DC45A6006F05FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F158FA723DC4218006F05FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F158FC923DC424A006F05FB;
+			remoteInfo = ShopKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5F158FC823DC424A006F05FB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5F158FAF23DC4218006F05FB /* Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +55,27 @@
 		5F158FBB23DC4219006F05FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5F158FBE23DC4219006F05FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F158FC023DC4219006F05FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F158FCA23DC424A006F05FB /* libShopKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libShopKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F158FCC23DC424A006F05FB /* ShopKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopKit.swift; sourceTree = "<group>"; };
+		5F158FD223DC430D006F05FB /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		5F158FD423DC4415006F05FB /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		5F158FD723DC4530006F05FB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		5F158FDE23DC468A006F05FB /* Combine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extensions.swift"; sourceTree = "<group>"; };
+		5F158FE023DC46E0006F05FB /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
+		5F158FE223DC482E006F05FB /* ShopAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAPI.swift; sourceTree = "<group>"; };
+		5F158FE423DC4E8F006F05FB /* ShopRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5F158FAC23DC4218006F05FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F158FDA23DC45A2006F05FB /* libShopKit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F158FC723DC424A006F05FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,7 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				5F158FB123DC4218006F05FB /* Shopping */,
+				5F158FCB23DC424A006F05FB /* ShopKit */,
 				5F158FB023DC4218006F05FB /* Products */,
+				5F158FD923DC45A2006F05FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				5F158FAF23DC4218006F05FB /* Shopping.app */,
+				5F158FCA23DC424A006F05FB /* libShopKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +126,52 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5F158FCB23DC424A006F05FB /* ShopKit */ = {
+			isa = PBXGroup;
+			children = (
+				5F158FDD23DC4659006F05FB /* Foundation */,
+				5F158FD623DC448F006F05FB /* Network */,
+				5F158FD123DC4282006F05FB /* Models */,
+				5F158FCC23DC424A006F05FB /* ShopKit.swift */,
+			);
+			path = ShopKit;
+			sourceTree = "<group>";
+		};
+		5F158FD123DC4282006F05FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5F158FD223DC430D006F05FB /* Product.swift */,
+				5F158FD423DC4415006F05FB /* CartItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5F158FD623DC448F006F05FB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5F158FD723DC4530006F05FB /* Network.swift */,
+				5F158FE223DC482E006F05FB /* ShopAPI.swift */,
+				5F158FE423DC4E8F006F05FB /* ShopRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5F158FD923DC45A2006F05FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F158FDD23DC4659006F05FB /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				5F158FDE23DC468A006F05FB /* Combine+Extensions.swift */,
+				5F158FE023DC46E0006F05FB /* Data+Extensions.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,11 +186,29 @@
 			buildRules = (
 			);
 			dependencies = (
+				5F158FDC23DC45A6006F05FB /* PBXTargetDependency */,
 			);
 			name = Shopping;
 			productName = Shopping;
 			productReference = 5F158FAF23DC4218006F05FB /* Shopping.app */;
 			productType = "com.apple.product-type.application";
+		};
+		5F158FC923DC424A006F05FB /* ShopKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F158FCE23DC424A006F05FB /* Build configuration list for PBXNativeTarget "ShopKit" */;
+			buildPhases = (
+				5F158FC623DC424A006F05FB /* Sources */,
+				5F158FC723DC424A006F05FB /* Frameworks */,
+				5F158FC823DC424A006F05FB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShopKit;
+			productName = ShopKit;
+			productReference = 5F158FCA23DC424A006F05FB /* libShopKit.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -106,6 +221,9 @@
 				ORGANIZATIONNAME = HernanGonzalez;
 				TargetAttributes = {
 					5F158FAE23DC4218006F05FB = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					5F158FC923DC424A006F05FB = {
 						CreatedOnToolsVersion = 11.3;
 					};
 				};
@@ -124,6 +242,7 @@
 			projectRoot = "";
 			targets = (
 				5F158FAE23DC4218006F05FB /* Shopping */,
+				5F158FC923DC424A006F05FB /* ShopKit */,
 			);
 		};
 /* End PBXProject section */
@@ -152,7 +271,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5F158FC623DC424A006F05FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F158FCD23DC424A006F05FB /* ShopKit.swift in Sources */,
+				5F158FDF23DC468A006F05FB /* Combine+Extensions.swift in Sources */,
+				5F158FD523DC4415006F05FB /* CartItem.swift in Sources */,
+				5F158FE123DC46E0006F05FB /* Data+Extensions.swift in Sources */,
+				5F158FD823DC4530006F05FB /* Network.swift in Sources */,
+				5F158FE323DC482E006F05FB /* ShopAPI.swift in Sources */,
+				5F158FD323DC430D006F05FB /* Product.swift in Sources */,
+				5F158FE523DC4E8F006F05FB /* ShopRequest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F158FDC23DC45A6006F05FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F158FC923DC424A006F05FB /* ShopKit */;
+			targetProxy = 5F158FDB23DC45A6006F05FB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5F158FBD23DC4219006F05FB /* LaunchScreen.storyboard */ = {
@@ -318,6 +460,30 @@
 			};
 			name = Release;
 		};
+		5F158FCF23DC424A006F05FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5F158FD023DC424A006F05FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -335,6 +501,15 @@
 			buildConfigurations = (
 				5F158FC423DC4219006F05FB /* Debug */,
 				5F158FC523DC4219006F05FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F158FCE23DC424A006F05FB /* Build configuration list for PBXNativeTarget "ShopKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F158FCF23DC424A006F05FB /* Debug */,
+				5F158FD023DC424A006F05FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
