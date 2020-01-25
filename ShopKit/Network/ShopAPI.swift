@@ -12,6 +12,7 @@ enum ShopAPI {
     static let scheme = "https"
     static let host = "2klqdzs603.execute-api.eu-west-2.amazonaws.com"
     static let path = "/cloths"
+    static let publicKey = "DD0A0B0944-7A6D-499E-8291-20166FFD2566"
 
     case products
     case cart

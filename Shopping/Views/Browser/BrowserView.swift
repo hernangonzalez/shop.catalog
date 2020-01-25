@@ -16,7 +16,7 @@ struct BrowserView: View {
             List {
                 Section(header: Text(viewModel.sectionTitle).bold()) {
                     ForEach(viewModel.products) {
-                        Text($0.name)
+                        ProductView(viewModel: $0)
                     }
                 }
             }
@@ -25,12 +25,3 @@ struct BrowserView: View {
         .onAppear(perform: viewModel.updateProducts)
     }
 }
-
-#if DEBUG
-struct BrowserView_Previews: PreviewProvider {
-    static let model = BrowserViewModel()
-    static var previews: some View {
-        BrowserView(viewModel: model)
-    }
-}
-#endif

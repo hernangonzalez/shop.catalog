@@ -10,16 +10,14 @@ import Foundation
 import Combine
 import ShopKit
 
-struct ProductViewModel: Identifiable {
-    let id: Int
-    let name: String
-}
-
 class BrowserViewModel {
     private var cancellables = CancellableSet()
     private let needsUpdate: PassthroughSubject<Void, Never> = .init()
+
+    // MARK: Dependencies
     private let source = ShopKit()
 
+    // MARK: Data
     private var items: [Product] = .init() {
         willSet { needsUpdate.send() }
     }
@@ -58,6 +56,10 @@ extension ProductViewModel {
     init(from model: Product) {
         id = model.id
         name = model.name
+        category = model.category
+        price = model.price
+        oldPrice = model.oldPrice ?? .init()
+        available = model.stock > 0
     }
 }
 
