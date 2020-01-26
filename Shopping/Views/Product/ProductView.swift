@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ProductView: View {
-    let viewModel: ProductViewModel
+    @ObservedObject var viewModel: ProductViewModel
 
     private var oldPriceHeight: CGFloat {
         viewModel.oldPrice.isEmpty ? 0 : 20
@@ -37,37 +37,27 @@ struct ProductView: View {
                         .frame(height: oldPriceHeight)
                 }
 
-                Button(action: viewModel.addToCart) {
-                    Image(systemName: "plus.circle")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 32, height: 32)
-                        .foregroundColor(.blue)
-                }
+                Image(systemName: "plus.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 32, height: 32)
+                    .foregroundColor(viewModel.addState.color)
+                    .onTapGesture(perform: viewModel.add)
             }
         }
         .frame(minHeight: 88)
     }
 }
 
-
-#if DEBUG
-struct ProductView_Previews: PreviewProvider {
-    static let models = [
-        ProductViewModel(id: 33, name: "River Plate!", price: "99.0", oldPrice: "120.0", category: "El más grande, lejos.", available: true),
-        ProductViewModel(id: 12, name: "Fine Stripe Short Sleeve Shirt, Green", price: "78.0", oldPrice: "", category: "Quién te conoce?", available: false)
-    ]
-
-    static var previews: some View {
-        NavigationView {
-            List {
-                Section(header: Text("Section")) {
-                    ForEach(models) {
-                        ProductView(viewModel: $0)
-                    }
-                }
-            }
+private extension ActionState {
+    var color: Color {
+        switch self {
+        case .disabled:
+            return .gray
+        case .enabled:
+            return .blue
+        case .inProgress:
+            return .yellow
         }
     }
 }
-#endif

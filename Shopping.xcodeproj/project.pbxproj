@@ -22,6 +22,7 @@
 		5F158FE123DC46E0006F05FB /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F158FE023DC46E0006F05FB /* Data+Extensions.swift */; };
 		5F158FE323DC482E006F05FB /* ShopAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F158FE223DC482E006F05FB /* ShopAPI.swift */; };
 		5F158FE523DC4E8F006F05FB /* ShopRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F158FE423DC4E8F006F05FB /* ShopRequest.swift */; };
+		5F4E6E3723DC902B00034DB0 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4E6E3623DC902B00034DB0 /* Cart.swift */; };
 		5FDB18E923DC77840038D5BD /* BrowserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDB18E823DC77840038D5BD /* BrowserViewModel.swift */; };
 		5FDB18EB23DC83920038D5BD /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDB18EA23DC83920038D5BD /* ProductView.swift */; };
 		5FDB18ED23DC840B0038D5BD /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDB18EC23DC840B0038D5BD /* ProductViewModel.swift */; };
@@ -67,6 +68,7 @@
 		5F158FE023DC46E0006F05FB /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		5F158FE223DC482E006F05FB /* ShopAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAPI.swift; sourceTree = "<group>"; };
 		5F158FE423DC4E8F006F05FB /* ShopRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRequest.swift; sourceTree = "<group>"; };
+		5F4E6E3623DC902B00034DB0 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		5FDB18E823DC77840038D5BD /* BrowserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewModel.swift; sourceTree = "<group>"; };
 		5FDB18EA23DC83920038D5BD /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		5FDB18EC23DC840B0038D5BD /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				5F158FD223DC430D006F05FB /* Product.swift */,
 				5F158FD423DC4415006F05FB /* CartItem.swift */,
+				5F4E6E3623DC902B00034DB0 /* Cart.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F158FCD23DC424A006F05FB /* ShopKit.swift in Sources */,
+				5F4E6E3723DC902B00034DB0 /* Cart.swift in Sources */,
 				5F158FDF23DC468A006F05FB /* Combine+Extensions.swift in Sources */,
 				5F158FD523DC4415006F05FB /* CartItem.swift in Sources */,
 				5F158FE123DC46E0006F05FB /* Data+Extensions.swift in Sources */,
@@ -470,8 +474,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Shopping/Preview Content\"";
+				DEVELOPMENT_TEAM = 76F4MTSZD3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Shopping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -480,6 +486,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hernan.Shopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = xc_wildcard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -489,8 +496,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Shopping/Preview Content\"";
+				DEVELOPMENT_TEAM = 76F4MTSZD3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Shopping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -499,6 +508,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hernan.Shopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = xc_wildcard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

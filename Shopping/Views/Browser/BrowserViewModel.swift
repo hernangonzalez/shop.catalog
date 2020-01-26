@@ -16,16 +16,40 @@ class BrowserViewModel {
 
     // MARK: Dependencies
     private let source = ShopKit()
+    private let cart = Cart()
 
     // MARK: Data
     private var items: [Product] = .init() {
         willSet { needsUpdate.send() }
     }
+    private var cartCount: Int = .init() {
+        willSet { needsUpdate.send() }
+    }
+}
+
+// MARK: - Presentation
+extension BrowserViewModel: ObservableObject {
+    var title: String { "Catalog" }
+    var sectionTitle: String { "Products" }
+
+    var products: [ProductViewModel] {
+        items.map {
+            .init(from: $0, cart: cart)
+        }
+    }
+
+    var objectWillChange: AnyPublisher<Void, Never> {
+        needsUpdate.eraseToAnyPublisher()
+    }
 }
 
 // MARK: - Actions
 extension BrowserViewModel {
+
+    // MARK: Update
     func updateProducts() {
+        cart.update()
+
         cancellables += source
             .products()
             .receive(on: DispatchQueue.main)
@@ -42,30 +66,3 @@ extension BrowserViewModel {
     }
 }
 
-// MARK: - Presentation
-extension BrowserViewModel {
-    var title: String { "Catalog" }
-    var sectionTitle: String { "Products" }
-
-    var products: [ProductViewModel] {
-        items.map { .init(from: $0) }
-    }
-}
-
-extension ProductViewModel {
-    init(from model: Product) {
-        id = model.id
-        name = model.name
-        category = model.category
-        price = model.price
-        oldPrice = model.oldPrice ?? .init()
-        available = model.stock > 0
-    }
-}
-
-// MARK: - ObservableObject
-extension BrowserViewModel: ObservableObject {
-    var objectWillChange: AnyPublisher<Void, Never> {
-        needsUpdate.eraseToAnyPublisher()
-    }
-}

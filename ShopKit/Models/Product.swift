@@ -17,4 +17,5 @@ public struct Product: Decodable, Identifiable {
     public let price: String
     public let oldPrice: String?
     public let stock: Int
+    public var available: Bool { stock > 0 }
 }

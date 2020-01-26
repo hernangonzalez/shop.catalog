@@ -24,6 +24,14 @@ public extension Publisher {
             .setFailureType(to: Failure.self)
             .eraseToAnyPublisher()
     }
+
+    func catchError(with other: AnyPublisher<Output, Never>) -> AnyPublisher<Output, Never> {
+        self.catch { error -> AnyPublisher<Output, Never> in
+            return other
+        }
+        .eraseToAnyPublisher()
+    }
+
 }
 
 public typealias CancellableSet = Array<AnyCancellable>
