@@ -30,7 +30,6 @@ class BrowserViewModel {
 // MARK: - Presentation
 extension BrowserViewModel: ObservableObject {
     var title: String { "Catalog" }
-    var sectionTitle: String { "Products" }
 
     var products: [ProductViewModel] {
         items.map {

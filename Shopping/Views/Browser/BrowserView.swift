@@ -14,14 +14,16 @@ struct BrowserView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text(viewModel.sectionTitle).bold()) {
-                    ForEach(viewModel.products) {
-                        ProductView(viewModel: $0)
-                    }
+                ForEach(viewModel.products) {
+                    ProductView(viewModel: $0)
                 }
             }
             .navigationBarTitle(viewModel.title)
         }
         .onAppear(perform: viewModel.updateProducts)
+        .tabItem {
+            Image(systemName: "list.dash")
+            Text(viewModel.title)
+        }
     }
 }
