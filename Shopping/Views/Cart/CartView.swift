@@ -9,21 +9,23 @@
 import SwiftUI
 
 struct CartView: View {
+    @ObservedObject var viewModel: CartViewModel
+
     var body: some View {
         NavigationView {
             List {
-                Text("Hello, World!")
+                ForEach(viewModel.items) {
+                    Text($0.name).frame(minHeight: 88)
+                }
+                .onDelete {
+                    debugPrint($0)
+                }
             }
+            .navigationBarTitle(viewModel.title)
         }
         .tabItem {
             Image(systemName: "cart.fill")
-            Text("Cart")
+            Text(viewModel.title)
         }
-    }
-}
-
-struct CartView_Previews: PreviewProvider {
-    static var previews: some View {
-        CartView()
     }
 }

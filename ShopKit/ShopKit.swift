@@ -16,31 +16,15 @@ public enum KitError: Error {
 
 public class ShopKit {
     public static let version = 1.0
-    public init() { }
 }
 
+// MARK: - Public
 public extension ShopKit {
-    func products() -> AnyPublisher<[Product], Error> {
-        let api = ShopAPI.products
-        return URLSession.api.data(with: api)
+    static func catalogue() -> Catalogue {
+        .init()
     }
 
-    func cart() -> AnyPublisher<[CartItem], Error> {
-        let api = ShopAPI.cart
-        return URLSession.api.data(with: api)
-    }
-
-    func addCart(productId: ProductID) -> AnyPublisher<Void, Error> {
-        let api = ShopAPI.addCart(productId: productId)
-        let data = URLSession.api.data(with: api)
-        return data.map { _ in }
-            .eraseToAnyPublisher()
-    }
-
-    func removeCart(cartId: CartID) -> AnyPublisher<Void, Error> {
-        let api = ShopAPI.removeCart(productId: cartId)
-        let data = URLSession.api.data(with: api)
-        return data.map { _ in }
-            .eraseToAnyPublisher()
+    static func cart() -> Cart {
+        .init()
     }
 }

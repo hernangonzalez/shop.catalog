@@ -21,10 +21,11 @@ struct ProductView: View {
                 .foregroundColor(.secondary)
                 .font(.subheadline)
 
-            HStack(spacing: 20) {
+            HStack(spacing: 8) {
                 Text(viewModel.name)
                     .font(.title)
-                Spacer(minLength: 2)
+                    .fixedSize(horizontal: false, vertical: true)
+                Spacer(minLength: 4)
 
                 VStack(alignment: .trailing) {
                     Text(viewModel.price)

@@ -17,7 +17,7 @@ enum ShopAPI {
     case products
     case cart
     case addCart(productId: ProductID)
-    case removeCart(productId: ProductID)
+    case removeCart(id: CartID)
 }
 
 extension ShopAPI: ShopRequest {
