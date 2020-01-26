@@ -60,7 +60,6 @@ extension ProductViewModel {
     }
 
     private func addDidComplete(_ completion: Subscribers.Completion<Error>) {
-        print(completion)
         stock -= 1
     }
 }

@@ -17,9 +17,7 @@ struct CartView: View {
                 ForEach(viewModel.items) {
                     Text($0.name).frame(minHeight: 88)
                 }
-                .onDelete {
-                    debugPrint($0)
-                }
+                .onDelete(perform: viewModel.delete(offsets:))
             }
             .navigationBarTitle(viewModel.title)
         }

@@ -33,8 +33,7 @@ class BrowserViewModel {
 
         catalogue.products
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [unowned self] in self.product(completion: $0) },
-                  receiveValue: { [unowned self] in self.items = $0 })
+            .sink(receiveValue: { [unowned self] in self.items = $0 })
             .store(in: &bindings)
     }
 }
@@ -64,7 +63,6 @@ extension BrowserViewModel {
     }
 
     private func product(completion: Subscribers.Completion<Error>) {
-        debugPrint(completion)
     }
 
     private func product(items: [Product]) {

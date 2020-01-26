@@ -37,9 +37,8 @@ class CartViewModel {
         cart.items
             .combineLatest(catalogue.products)
             .map { $0.0.models(with: $0.1) }
-            .catchError(with: .empty)
             .receive(on: DispatchQueue.main)
-            .assign(to: \.models, on: self)
+            .sink(receiveValue: { self.models = $0 })
             .store(in: &bindings)
     }
 }
@@ -66,7 +65,21 @@ private extension Array where Element == CartItem {
 
 // MARK: - Actions
 extension CartViewModel {
-    func delete(item: CartItemViewModel) {
-        debugPrint(item)
+    func delete(offsets: IndexSet) {
+        let delete = offsets
+            .map { models[$0].id }
+            .map { cart.remove(item: $0) }
+
+        let merged: AnyPublisher<Void, Error> = delete.reduce(.empty) {
+            $0.merge(with: $1).eraseToAnyPublisher()
+        }
+
+        models.remove(atOffsets: offsets)
+        bindings += merged
+            .sink(receiveCompletion: delete(completion:),
+                  receiveValue: deleted)
     }
+
+    private func delete(completion: Subscribers.Completion<Error>) { }
+    private func deleted() { }
 }
