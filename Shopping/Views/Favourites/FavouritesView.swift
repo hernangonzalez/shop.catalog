@@ -9,21 +9,21 @@
 import SwiftUI
 
 struct FavouritesView: View {
+    @ObservedObject var viewModel: FavouritesViewModel
+
     var body: some View {
         NavigationView {
             List {
-                Text("Hello, World!")
+                ForEach(viewModel.items) {
+                    Text($0.name)
+                        .bold()
+                }
             }
+            .navigationBarTitle(viewModel.title)
         }
         .tabItem {
             Image(systemName: "heart.fill")
-            Text("Favourites")
+            Text(viewModel.title)
         }
-    }
-}
-
-struct FavouritesView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavouritesView()
     }
 }

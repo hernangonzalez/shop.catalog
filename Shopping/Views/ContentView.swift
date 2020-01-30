@@ -11,11 +11,12 @@ import SwiftUI
 struct ContentView: View {
     let browser: BrowserViewModel
     let cart: CartViewModel
+    let favourites: FavouritesViewModel
 
     var body: some View {
         TabView {
             BrowserView(viewModel: browser)
-            FavouritesView()
+            FavouritesView(viewModel: favourites)
             CartView(viewModel: cart)
         }
     }

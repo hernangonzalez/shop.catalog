@@ -15,8 +15,9 @@ class BrowserViewModel {
     private let needsUpdate: PassthroughSubject<Void, Never> = .init()
 
     // MARK: Dependencies
-    private let catalogue: Catalogue
-    private let cart: Cart
+    private unowned let catalogue: Catalogue
+    private unowned let cart: Cart
+    private unowned let favourites: Favourites
 
     // MARK: Data
     private var items: [Product] = .init() {
@@ -27,9 +28,10 @@ class BrowserViewModel {
     }
 
     // MARK: Init
-    init(cart: Cart, catalogue: Catalogue) {
+    init(cart: Cart, catalogue: Catalogue, favourites: Favourites) {
         self.cart = cart
         self.catalogue = catalogue
+        self.favourites = favourites
 
         catalogue.products
             .receive(on: DispatchQueue.main)
@@ -44,7 +46,7 @@ extension BrowserViewModel: ObservableObject {
 
     var products: [ProductViewModel] {
         items.map {
-            .init(from: $0, cart: cart)
+            .init(from: $0, cart: cart, favourites: favourites)
         }
     }
 

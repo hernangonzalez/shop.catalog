@@ -27,4 +27,8 @@ public extension ShopKit {
     static func cart() -> Cart {
         .init()
     }
+
+    static func favourites() -> Favourites {
+        .init(store: .standard)
+    }
 }

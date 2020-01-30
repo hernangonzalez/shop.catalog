@@ -15,6 +15,10 @@ struct ProductView: View {
         viewModel.oldPrice.isEmpty ? 0 : 20
     }
 
+    private var favouriteImage: String {
+        viewModel.isFavourite ? "heart.fill" : "heart"
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(viewModel.category)
@@ -38,12 +42,21 @@ struct ProductView: View {
                         .frame(height: oldPriceHeight)
                 }
 
-                Image(systemName: "plus.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 32, height: 32)
-                    .foregroundColor(viewModel.addState.color)
-                    .onTapGesture(perform: viewModel.add)
+                VStack {
+                    Image(systemName: "plus.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 32, height: 32)
+                        .foregroundColor(viewModel.addState.color)
+                        .onTapGesture(perform: viewModel.add)
+
+                    Image(systemName: favouriteImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 32, height: 32)
+                        .foregroundColor(.red)
+                        .onTapGesture(perform: viewModel.toggleIsFavourite)
+                }
             }
         }
         .frame(minHeight: 88)

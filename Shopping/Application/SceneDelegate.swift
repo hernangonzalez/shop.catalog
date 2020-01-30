@@ -13,16 +13,20 @@ import ShopKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
+    // MARK: Dependencies
+    let catalogue = ShopKit.catalogue()
+    let cart = ShopKit.cart()
+    let favourites = ShopKit.favourites()
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let catalogue = ShopKit.catalogue()
-        let cart = ShopKit.cart()
-        let contentView = ContentView(browser: .init(cart: cart, catalogue: catalogue),
-                                      cart: .init(cart: cart, catalogue: catalogue))
+        let contentView = ContentView(browser: .init(cart: cart, catalogue: catalogue, favourites: favourites),
+                                      cart: .init(cart: cart, catalogue: catalogue),
+                                      favourites: .init(catalogue: catalogue, favourites: favourites))
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

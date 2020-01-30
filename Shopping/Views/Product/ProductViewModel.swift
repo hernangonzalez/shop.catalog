@@ -20,7 +20,8 @@ class ProductViewModel: Identifiable, ObservableObject {
     private var cancellables: CancellableSet = .init()
 
     // MARK: Dependencies
-    private let cart: Cart
+    private unowned let cart: Cart
+    private unowned let favourites: Favourites
 
     // MARK: Data
     let id: ProductID
@@ -29,13 +30,14 @@ class ProductViewModel: Identifiable, ObservableObject {
     }
 
     // MARK: Presentation
-    @Published var addState: ActionState = .enabled
+    @Published var addState: ActionState
+    @Published var isFavourite: Bool
     let name: String
     let price: String
     let oldPrice: String
     let category: String
 
-    init(from model: Product, cart: Cart) {
+    init(from model: Product, cart: Cart, favourites: Favourites) {
         self.id = model.id
         self.name = model.name
         self.category = model.category
@@ -44,6 +46,8 @@ class ProductViewModel: Identifiable, ObservableObject {
         self.stock = model.stock
         self.addState = model.available ? .enabled : .disabled
         self.cart = cart
+        self.favourites = favourites
+        self.isFavourite = favourites.isFavourite(model.id)
     }
 }
 
@@ -57,6 +61,15 @@ extension ProductViewModel {
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [unowned self]  in self.addDidComplete($0) },
                   receiveValue: { })
+    }
+
+    func toggleIsFavourite() {
+        if isFavourite {
+            favourites.remove(product: id)
+        } else {
+            favourites.add(product: id)
+        }
+        isFavourite.toggle()
     }
 
     private func addDidComplete(_ completion: Subscribers.Completion<Error>) {
